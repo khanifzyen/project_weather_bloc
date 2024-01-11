@@ -3,7 +3,7 @@ import 'dart:convert';
 import '../../utils/constant.dart';
 
 class WeatherDataProvider {
-  Future<Map<String, dynamic>> getCurrentWeather(String cityName) async {
+  Future<String> getCurrentWeather(String cityName) async {
     try {
       final res = await http.get(
         Uri.parse(
@@ -11,13 +11,7 @@ class WeatherDataProvider {
         ),
       );
 
-      final data = jsonDecode(res.body);
-
-      if (data['cod'] != '200') {
-        throw 'An unexpected error occurred';
-      }
-
-      return data;
+      return res.body;
     } catch (e) {
       throw e.toString();
     }
