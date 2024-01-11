@@ -1,5 +1,4 @@
 import 'package:http/http.dart' as http;
-import 'dart:convert';
 import '../../utils/constant.dart';
 
 class WeatherDataProvider {
